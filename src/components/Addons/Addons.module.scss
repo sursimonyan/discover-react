@@ -1,0 +1,110 @@
+.addons {
+    position: relative;
+    margin-block-end: 12rem;
+
+    &__title {
+        margin-block-end: 3.5rem;
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        color: var(--textmain-color);
+        text-transform: uppercase;
+
+        &:after {
+            content: "";
+            display: block;
+            margin-block-start: 1.25rem;
+            width: 10rem;
+            height: .5rem;
+            background-image: var(--gradient-1);
+            border-radius: 6px;
+        }
+    }
+
+    &__items_wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    &__item {
+        position: relative;
+        width: calc(33.333% - 1.875rem);
+        padding: 4px;
+        background-image: var(--gradient-8);
+        border-radius: 20px;
+    }
+
+    &__item_inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: .5rem;
+        max-width: 19.75rem;
+        min-height: 23rem;
+        padding: 3.75rem 1.5rem;
+        transition: background-color 360ms;
+        border-radius: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--bg-color);
+        }
+    }
+
+    &__item_img {
+        align-self: center;
+        max-width: 8.25rem;
+    }
+
+    &__item_title {
+        margin-block-end: .5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--textmain-color);
+    }
+
+    &__item_desc {
+        font-size: 1rem;
+        line-height: 1.25;
+        letter-spacing: 0.07em;
+        color: var(--textmain-color);
+    }
+
+    &__animation {
+        position: absolute;
+        top: -6.25rem;
+        right: -5rem;
+        width: 14rem;
+        height: 13rem;
+        transform-origin: center;
+        animation-name: circle-animation;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+}
+
+.bottom_animation {
+    position: absolute;
+    left: -15.8125rem;
+    bottom: -10rem;
+    width: 31.625rem;
+    height: 31.625rem;
+    transform-origin: center;
+    animation-name: circle-animation;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes circle-animation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}

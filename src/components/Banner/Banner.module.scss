@@ -1,0 +1,123 @@
+.banner {
+    position: relative;
+    margin-block-end: 2.25rem;
+
+    &__img {
+        position: relative;
+    }
+
+    &__animation {
+        position: absolute;
+        top: 0;
+        right: 12vw;
+        display: block;
+        max-width: 44.625rem;
+        max-height: 44.625rem;
+        width: 50vw;
+        height: 50vw;
+        animation-name: peaces-animation;
+        animation-duration: 60s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-delay: 0s;
+        animation-direction: alternate;
+        //animation-fill-mode: backwards;
+    }
+
+    &__inner {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        max-width: 90rem !important;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-50%);
+    }
+
+    &__content {
+        max-width: 36.625rem;
+        width: 41%;
+    }
+
+    &__title {
+        margin-block-end: 2.5rem;
+        font-family: 'Anek Tamil', sans-serif;
+        font-size: 9.375rem;
+        line-height: 1.16;
+        font-weight: 700;
+        color: var(--textmain-color);
+        transform: translateX(200%);
+        transition: transform 1.5s 500ms;
+    }
+
+    &__title_purple {
+        background-image: var(--gradient-5);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__desk {
+        font-size: 1rem;
+        line-height: 1.25;
+        color: var(--textmain-color);
+        transform: translateX(250%);
+        transition: transform 1.5s 1s;
+    }
+
+    &__translate {
+        transform: translateX(0);
+    }
+
+    &__orbit_wrap {
+        position: absolute;
+        right: -11.725rem;
+        bottom: -11.725rem;
+        width: 23.5rem;
+        height: 23.5rem;
+        overflow: hidden;
+    }
+
+    &__orbit {
+        transform-origin: center;
+        // transform: translate(50%, 50%);
+        animation-name: orbit-animation;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+}
+
+@keyframes text-translate-animation {
+    0% {
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes peaces-animation {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes orbit-animation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
