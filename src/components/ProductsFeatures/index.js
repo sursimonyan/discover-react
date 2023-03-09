@@ -1,6 +1,6 @@
 import cn from "classnames";
-import { useState } from "react";
-import { useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import { useIsVisible } from "../../hooks/useIsVisible";
 
 import styles from "./ProductsFeatures.module.scss";
 import "slick-carousel/slick/slick.css";
@@ -8,16 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { images } from "../../assets/images";
 
 export const ProductsFeatures = () => {
-  const [isOnDiv, setIsOnDiv] = useState(false);
-
   const [openImageNum, setOpenImageNum] = useState(null);
 
   const scrollRef = useRef(null);
 
-  const observer = new IntersectionObserver((entries) => {
-    const entry = entries[0];
-    setIsOnDiv(entry.isIntersecting);
-  });
+  const isOnDiv = useIsVisible(scrollRef);
 
   const openImage = (id) => {
     setOpenImageNum(id);
@@ -28,10 +23,6 @@ export const ProductsFeatures = () => {
     setOpenImageNum(null);
     document.body.classList.remove("overflow-hidden");
   };
-
-  useEffect(() => {
-    observer.observe(scrollRef.current);
-  }, [isOnDiv]);
 
   return (
     <section className={styles.productsfeatures}>

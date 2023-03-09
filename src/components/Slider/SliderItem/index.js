@@ -1,21 +1,14 @@
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useIsVisible } from "../../../hooks/useIsVisible";
 
 import styles from "./SliderItem.module.scss";
 import { images } from "../../../assets/images";
 
 export const SliderItem = () => {
-  const [isOnDiv, setIsOnDiv] = useState(false);
   const scrollRef = useRef(null);
 
-  const observer = new IntersectionObserver((entries) => {
-    const entry = entries[0];
-    setIsOnDiv(entry.isIntersecting);
-  });
-
-  useEffect(() => {
-    observer.observe(scrollRef.current);
-  }, []);
+  const isOnDiv = useIsVisible(scrollRef);
 
   return (
     <div className={styles.slideritem} ref={scrollRef}>

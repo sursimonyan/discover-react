@@ -1,21 +1,14 @@
 import cn from "classnames";
-import { useState, useEffect, useRef } from "react";
-import { images } from "../../assets/images";
+import { useRef } from "react";
+import { useIsVisible } from "../../hooks/useIsVisible";
 
 import styles from "./Shop.module.scss";
+import { images } from "../../assets/images";
 
 export const Shop = () => {
-  const [isOnDiv, setIsOnDiv] = useState(false);
   const scrollRef = useRef(null);
 
-  const observer = new IntersectionObserver((entries) => {
-    const entry = entries[0];
-    setIsOnDiv(entry.isIntersecting);
-  });
-
-  useEffect(() => {
-    observer.observe(scrollRef.current);
-  }, []);
+  const isOnDiv = useIsVisible(scrollRef);
 
   return (
     <section className={styles.shop}>
